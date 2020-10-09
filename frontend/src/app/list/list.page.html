@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Beers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let b of bicycles">
+        <ion-card size=4>
+          <ion-card-header>
+            <ion-row>
+              <ion-avatar class="avtr">
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+              </ion-avatar>
+              <ion-card-title class="crd-ttl">{{b.brand}}</ion-card-title>
+            </ion-row>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{b.model}}
+          </ion-card-content>
+          <ion-item>
+            <ion-icon slot="end" (click)="presentActionSheet(b.id)" name="ellipsis-vertical-outline"></ion-icon>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-footer class="footer">
+    <ion-toolbar>
+      <ion-row>
+        <ion-col size=6>
+          <ion-button (click)="addBicycle()" expand="block">
+            <ion-icon name="add-circle-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+
+
+
+        <ion-col size=6>
+          <ion-button (click)="searchBicycle()" expand="block" color="success">
+            <ion-icon name="search-outline"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-toolbar>
+  </ion-footer>
+
+
+
+</ion-content>
